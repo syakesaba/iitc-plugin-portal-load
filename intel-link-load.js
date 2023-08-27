@@ -20,11 +20,18 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
 
 // use own namespace for plugin
 window.plugin.intelload = function() {};
+window.plugin.intelload.url = "https://link.ingress.com/?link="
+window.plugin.intelload.apn = "com.nianticproject.ingress";
+window.plugin.intelload.isi = "576505181";
+window.plugin.intelload.ibi = "com.google.ingress";
+window.plugin.intelload.ifl = "https://apps.apple.com/app/ingress/id576505181";
 
 // Nickname Load
 window.plugin.intelload.addNicknameLink = function(d) {
-  alert(d);
-  console.log(d);
+  var nickname = d.nickname;
+  var ofl = "https://www.ingress.com/"
+  var linkURL = window.intelload.url + "https://intel.ingress.com/agent/" + nickname + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
+  window.alert('<aside><a href="' + linkURL + '" target="_blank" title="Open URL of the agent">' + nickname + '</a></aside>');
 }
 
 // Portal Load
@@ -34,16 +41,11 @@ window.plugin.intelload.addPortalLink = function(d) {
     console.warn('Error: failed to find portal details for guid '+guid+' - failed to show debug data');
     return;
   }
-  var linkURL = undefined;
   var data = window.portals[guid].options.data;
-  var lat = data.latE6/1E6;
-  var lng = data.lngE6/1E6;
-  var apn = "com.nianticproject.ingress";
-  var isi = "576505181";
-  var ibi = "com.google.ingress";
-  var ifl = "https://apps.apple.com/app/ingress/id576505181";
-  var ofl = "https://intel.ingress.com/intel?pll=" + lat + "," + lng;
-  linkURL = "https://link.ingress.com/?link=https://intel.ingress.com/portal/" + guid + "&apn=" + apn + "&isi=" + isi + "&ibi=" + ibi + "&ifl=" + encodeURIComponent(ifl) + "&ofl=" + encodeURIComponent(ofl);
+  var lat = data.latE6/1E6;//bigfloat -> float
+  var lng = data.lngE6/1E6;//bigfloat -> float
+  var ofl = "https://intel.ingress.com/intel?pll=" + lat.toString() + "," + lng.toString();
+  var linkURL = window.intelload.url + "https://intel.ingress.com/portal/" + guid + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
   $('.linkdetails').append('<aside><a href="' + linkURL + '" target="_blank" title="Display URL Load of the portal">Portal Load</a></aside>');
 }
 
