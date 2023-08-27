@@ -2,15 +2,15 @@
 // @name           IITC plugin: Debug: Intel Link Load
 // @id             iitc-intel-link-load
 // @category       Debug
-// @version        0.0.0
+// @version        0.0.1
 // @namespace      intelload
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-portal-load/main/intel-link-load.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-portal-load/main/intel-link-load.js
 // @description    Open Intel Load Link
-// @include https://intel.ingress.com/intel*
-// @match https://intel.ingress.com/intel*
-// @include https://intel.ingress.com/mission/*
-// @match https://intel.ingress.com/mission/*
+// @include https://www.ingress.com/intel*
+// @match https://www.ingress.com/intel*
+// @include https://intel.ingress.com/*
+// @match https://intel.ingress.com/*
 // @grant          none
 // ==/UserScript==
 
@@ -30,7 +30,7 @@ window.plugin.intelload.ifl = "https://apps.apple.com/app/ingress/id576505181";
 window.plugin.intelload.addNicknameLink = function(d) {
   var nickname = d.nickname;
   var ofl = "https://www.ingress.com/"
-  var linkURL = window.intelload.url + "https://intel.ingress.com/agent/" + nickname + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
+  var linkURL = window.plugin.intelload.url + "https://intel.ingress.com/agent/" + nickname + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
   window.alert('<aside><a href="' + linkURL + '" target="_blank" title="Open URL of the agent">' + nickname + '</a></aside>');
 }
 
@@ -45,7 +45,7 @@ window.plugin.intelload.addPortalLink = function(d) {
   var lat = data.latE6/1E6;//bigfloat -> float
   var lng = data.lngE6/1E6;//bigfloat -> float
   var ofl = "https://intel.ingress.com/intel?pll=" + lat.toString() + "," + lng.toString();
-  var linkURL = window.intelload.url + "https://intel.ingress.com/portal/" + guid + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
+  var linkURL = window.plugin.intelload.url + "https://intel.ingress.com/portal/" + guid + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
   $('.linkdetails').append('<aside><a href="' + linkURL + '" target="_blank" title="Display URL Load of the portal">Portal Load</a></aside>');
 }
 
