@@ -1,6 +1,6 @@
 // ==UserScript==
-// @id             iitc-intel-link-load
 // @name           IITC plugin: Debug: Intel Link Load
+// @id             iitc-intel-link-load
 // @category       Debug
 // @version        0.0.0
 // @namespace      intelload
@@ -23,6 +23,7 @@ window.plugin.intelload = function() {};
 
 // Nickname Load
 window.plugin.intelload.addNicknameLink = function(d) {
+  alert(d);
   console.log(d);
 }
 
