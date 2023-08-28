@@ -41,7 +41,6 @@ function wrapper(plugin_info) {
   // Nickname Load
   window.plugin.intelload.addNicknameLink = function(d) {
     var nickname = d.nickname;
-    var ofl = "https://www.ingress.com/"
     var innerAlert = '<aside>'
     innerAlert += '<div class="ui-dialog-content ui-widget-content">';
     innerAlert += 'Agent: <input type="text" placeholder="Agent Name..." data-selector-intelload="nickname_text" value="' + nickname + '">';
