@@ -2,13 +2,11 @@
 // @name           IITC plugin: Debug: Intel Link Load
 // @id             iitc-intel-link-load
 // @category       Debug
-// @version        0.0.2
+// @version        0.0.3
 // @namespace      intelload
 // @updateURL      https://raw.githubusercontent.com/syakesaba/iitc-plugin-portal-load/main/intel-link-load.js
 // @downloadURL    https://raw.githubusercontent.com/syakesaba/iitc-plugin-portal-load/main/intel-link-load.js
 // @description    Open Intel Load Link
-// @include https://www.ingress.com/intel*
-// @match https://www.ingress.com/intel*
 // @include https://intel.ingress.com/*
 // @match https://intel.ingress.com/*
 // @grant          none
@@ -28,7 +26,7 @@ function wrapper(plugin_info) {
   
   //Common
   window.plugin.intelload.getStatsURL = (function(nickname) {
-    var ofl = "https://www.ingress.com/"
+    var ofl = "https://intel.ingress.com/"
     return window.plugin.intelload.url + "https://intel.ingress.com/agent/" + nickname + "&apn=" + window.plugin.intelload.apn + "&isi=" + window.plugin.intelload.isi + "&ibi=" + window.plugin.intelload.ibi + "&ifl=" + encodeURIComponent(window.plugin.intelload.ifl) + "&ofl=" + encodeURIComponent(ofl);
   })
   window.plugin.intelload.clipStatsURL = (function() {
